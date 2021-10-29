@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GunEquipper : MonoBehaviour
 {
+    [SerializeField]
+    GameUI gameUI;
 
     public static string activeWeaponType;
     public GameObject pistol;
@@ -12,6 +14,7 @@ public class GunEquipper : MonoBehaviour
     GameObject activeGun;
     private void loadWeapon(GameObject weapon)
     {
+
         pistol.SetActive(false);
         assaultRifle.SetActive(false);
         shotgun.SetActive(false);
@@ -33,16 +36,19 @@ public class GunEquipper : MonoBehaviour
         {
             loadWeapon(pistol);
             activeWeaponType = Constants.Pistol;
+            gameUI.UpdateReticle();
         }
         else if (Input.GetKeyDown("2"))
         {
             loadWeapon(assaultRifle);
             activeWeaponType = Constants.AssaultRifle;
+            gameUI.UpdateReticle();
         }
         else if (Input.GetKeyDown("3"))
         {
             loadWeapon(shotgun);
             activeWeaponType = Constants.Shotgun;
+            gameUI.UpdateReticle();
         }
     }
     public GameObject GetActiveWeapon()
