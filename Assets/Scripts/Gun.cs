@@ -21,6 +21,7 @@ public class Gun : MonoBehaviour
     protected float lastFireTime;
 
     // Start is called before the first frame update
+    //Johans gun script
 
     void Start()
     {
